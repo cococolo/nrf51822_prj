@@ -349,13 +349,17 @@ artup_nrf51.d -o.\arm_startup_nrf51.o -IG:\nordic\my_prj\mdk\RTE -IG:\nordic\my
 _prj\mdk\RTE\nRF_Drivers\nRF51822_xxAA -IG:\nordic\my_prj\mdk\RTE\nRF_Libraries
 \nRF51822_xxAA -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include -IC:\Keil_v5
 \ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include -IC:\Ke
-il_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\common -IC:\Keil_v5\ARM\PA
-CK\NordicSemiconductor\nRF_Drivers\3.0.0\config -IC:\Keil_v5\ARM\PACK\NordicSem
-iconductor\nRF_Drivers\3.0.0\gpiote -IC:\Keil_v5\ARM\PACK\NordicSemiconductor\n
-RF_Drivers\3.0.0\hal -IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.
-0\nrf_soc_nosd -IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Examples\8.1.0\bsp
- -IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\3.0.0\util --list=.\ar
-m_startup_nrf51.lst RTE\Device\nRF51822_xxAA\arm_startup_nrf51.s
+il_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\clock -IC:\Keil_v5\ARM\PAC
+K\NordicSemiconductor\nRF_Drivers\3.0.0\common -IC:\Keil_v5\ARM\PACK\NordicSemi
+conductor\nRF_Drivers\3.0.0\config -IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nR
+F_Drivers\3.0.0\gpiote -IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.
+0.0\hal -IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\nrf_soc_nos
+d -IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\uart -IC:\Keil_v5
+\ARM\PACK\NordicSemiconductor\nRF_Examples\8.1.0\bsp -IC:\Keil_v5\ARM\PACK\Nord
+icSemiconductor\nRF_Libraries\3.0.0\fifo -IC:\Keil_v5\ARM\PACK\NordicSemiconduc
+tor\nRF_Libraries\3.0.0\trace -IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Lib
+raries\3.0.0\util --list=.\arm_startup_nrf51.lst RTE\Device\nRF51822_xxAA\arm_s
+tartup_nrf51.s
 
 
 

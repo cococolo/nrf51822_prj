@@ -10,7 +10,7 @@ Project File Date:  05/28/2015
 Build target 'NordicTest'
 compiling main.c...
 linking...
-Program Size: Code=3280 RO-data=236 RW-data=4 ZI-data=4252  
+Program Size: Code=5052 RO-data=244 RW-data=28 ZI-data=4540  
 ".\TEST.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -34,9 +34,12 @@ Package Vendor: NordicSemiconductor
    * Component: nrf_delay Version: 3.0.0
    * Component: nrf_gpio Version: 3.0.0
    * Component: nrf_gpiote Version: 3.0.0
+   * Component: nrf_clock Version: 3.0.0
    * Component: nrf_error Variant: No_softdevice Version: 3.0.0
+   * Component: nrf_drv_clock Version: 3.0.0
    * Component: nrf_drv_gpiote Version: 3.0.0
    * Component: nrf_drv_common Version: 3.0.0
+   * Component: app_uart Variant: Fifo Version: 3.0.0
 
 Package Vendor: NordicSemiconductor
                 http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Examples/NordicSemiconductor.nRF_Examples.8.1.0.pack
@@ -49,8 +52,12 @@ Package Vendor: NordicSemiconductor
                 NordicSemiconductor::nRF_Libraries:app_error:3.0.0
                 Software modules for Nordic Semiconductor nRF family.
    * Component: app_error Version: 3.0.0
+   * Component: retarget Version: 3.0.0
+   * Component: app_fifo Version: 3.0.0
+   * Component: app_trace Variant: default Version: 3.0.0
    * Component: nrf_assert Version: 3.0.0
    * Component: nordic_common Version: 3.0.0
+   * Component: app_util Variant: No_softdevice Version: 3.0.0
 
 <h2>Collection of Component include folders:</h2>
   G:\nordic\my_prj\mdk\RTE
@@ -58,12 +65,16 @@ Package Vendor: NordicSemiconductor
   G:\nordic\my_prj\mdk\RTE\nRF_Libraries\nRF51822_xxAA
   C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include
   C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include
+  C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\clock
   C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\common
   C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\config
   C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\gpiote
   C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\hal
   C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\nrf_soc_nosd
+  C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\uart
   C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Examples\8.1.0\bsp
+  C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\3.0.0\fifo
+  C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\3.0.0\trace
   C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\3.0.0\util
 
 <h2>Collection of Component Files used:</h2>
@@ -86,7 +97,15 @@ Package Vendor: NordicSemiconductor
    * Component: NordicSemiconductor::nRF_Drivers:nrf_gpiote:3.0.0
       Include file:  hal\nrf_gpiote.h
 
+   * Component: NordicSemiconductor::nRF_Drivers:nrf_clock:3.0.0
+      Include file:  hal\nrf_clock.h
+
    * Component: NordicSemiconductor::nRF_Drivers:nrf_error:No_softdevice:3.0.0
+
+   * Component: NordicSemiconductor::nRF_Drivers:nrf_drv_clock:3.0.0
+      Source file:   clock\nrf_drv_clock.c
+      Include file:  clock\nrf_drv_clock.h
+      Include file:  config\nrf_drv_config.h
 
    * Component: NordicSemiconductor::nRF_Drivers:nrf_drv_gpiote:3.0.0
       Source file:   gpiote\nrf_drv_gpiote.c
@@ -97,17 +116,35 @@ Package Vendor: NordicSemiconductor
       Source file:   common\nrf_drv_common.c
       Include file:  common\nrf_drv_common.h
 
+   * Component: NordicSemiconductor::nRF_Drivers:app_uart:Fifo:3.0.0
+      Source file:   uart\app_uart_fifo.c
+      Include file:  uart\app_uart.h
+
    * Component: NordicSemiconductor::Board Support:bsp:Defines:8.1.0
 
    * Component: NordicSemiconductor::nRF_Libraries:app_error:3.0.0
       Source file:   util\app_error.c
       Include file:  util\app_error.h
 
+   * Component: NordicSemiconductor::nRF_Libraries:retarget:3.0.0
+      Source file:   uart\retarget.c
+
+   * Component: NordicSemiconductor::nRF_Libraries:app_fifo:3.0.0
+      Source file:   fifo\app_fifo.c
+      Include file:  fifo\app_fifo.h
+
+   * Component: NordicSemiconductor::nRF_Libraries:app_trace:default:3.0.0
+      Source file:   trace\app_trace.c
+      Include file:  trace\app_trace.h
+
    * Component: NordicSemiconductor::nRF_Libraries:nrf_assert:3.0.0
       Source file:   util\nrf_assert.c
       Include file:  util\nrf_assert.h
 
    * Component: NordicSemiconductor::nRF_Libraries:nordic_common:3.0.0
+
+   * Component: NordicSemiconductor::nRF_Libraries:app_util:No_softdevice:3.0.0
+      Source file:   util\app_util_platform.c
 Load "G:\\nordic\\my_prj\\mdk\\TEST.axf" 
 Set JLink Project File to "G:\nordic\my_prj\mdk\JLinkSettings.ini"
 * JLink Info: Device "NRF51822_XXAA" selected (257 KB flash, 16 KB RAM).
@@ -138,8 +175,3 @@ JTAG speed: 2000 kHz
 Erase Done.
 Programming Done.
 Verify OK.
-Programming Done.
-Verify OK.
-c
-      Include file:  util\app_error.h
-Target not created

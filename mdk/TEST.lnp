@@ -5,8 +5,14 @@
 ".\nrf_delay.o"
 ".\nrf_drv_common.o"
 ".\nrf_drv_gpiote.o"
+".\nrf_drv_clock.o"
+".\app_uart_fifo.o"
 ".\app_error.o"
 ".\nrf_assert.o"
+".\app_fifo.o"
+".\app_trace.o"
+".\app_util_platform.o"
+".\retarget.o"
 --strict --scatter ".\TEST.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
