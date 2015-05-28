@@ -3,6 +3,10 @@
 ".\arm_startup_nrf51.o"
 ".\system_nrf51.o"
 ".\nrf_delay.o"
+".\nrf_drv_common.o"
+".\nrf_drv_gpiote.o"
+".\app_error.o"
+".\nrf_assert.o"
 --strict --scatter ".\TEST.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
