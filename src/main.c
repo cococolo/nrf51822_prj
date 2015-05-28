@@ -1,4 +1,3 @@
-#if 0
 #include <stdbool.h>
 #include <stdint.h>
 #include "nrf_delay.h"
@@ -9,10 +8,35 @@
 #include "nrf_drv_clock.h"
 #include "app_uart.h"
 #include "debug.h"
+#include "radio_config.h"
+
+
+//#define TX 1
+
 
 
 #define UART_TX_BUF_SIZE 128u /**< UART Tx buffer size. */
 #define UART_RX_BUF_SIZE 1u   /**< UART Rx buffer size. */
+
+
+#define AK2_LED0 18
+#define AK2_LED1 19
+#define AK2_LED2 20
+#define AK2_LED3 21
+#define AK2_LED4 22
+#define AK2_LED0_MASK (1<<AK2_LED0)
+#define AK2_LED1_MASK (1<<AK2_LED1)
+#define AK2_LED2_MASK (1<<AK2_LED2)
+#define AK2_LED3_MASK (1<<AK2_LED3)
+#define AK2_LED4_MASK (1<<AK2_LED4)
+#define AK2_LEDS_MASK      (AK2_LED0_MASK | AK2_LED1_MASK | AK2_LED2_MASK | \
+                            AK2_LED3_MASK | AK2_LED4_MASK)
+
+
+
+void send_packet();
+
+
 
 void uart_error_handle(app_uart_evt_t * p_event)
 {
@@ -32,7 +56,8 @@ void button_press_handler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action
 
     if(!nrf_gpio_pin_read(pin))
     {
-        printf("pressed button");
+        debug("pressed button and send rf msg");
+        send_packet();
         nrf_drv_gpiote_out_clear(leds_list[selected_led_num]);
         nrf_delay_ms(500);
         nrf_drv_gpiote_out_set(leds_list[selected_led_num]);
@@ -84,6 +109,112 @@ uint32_t GetFirmID()
 }
 
 
+//无线测试
+void clock_initialization()
+{
+    /* Start 16 MHz crystal oscillator */
+    NRF_CLOCK->EVENTS_HFCLKSTARTED = 0;
+    NRF_CLOCK->TASKS_HFCLKSTART    = 1;
+
+    /* Wait for the external oscillator to start up */
+    while (NRF_CLOCK->EVENTS_HFCLKSTARTED == 0)
+    {
+        // Do nothing.
+    }
+
+    /* Start low frequency crystal oscillator for app_timer(used by bsp)*/
+    NRF_CLOCK->LFCLKSRC            = (CLOCK_LFCLKSRC_SRC_Xtal << CLOCK_LFCLKSRC_SRC_Pos);
+    NRF_CLOCK->EVENTS_LFCLKSTARTED = 0;
+    NRF_CLOCK->TASKS_LFCLKSTART    = 1;
+
+    while (NRF_CLOCK->EVENTS_LFCLKSTARTED == 0)
+    {
+        // Do nothing.
+    }
+}
+
+static uint32_t                   packet;
+
+/**@brief Function for sending packet.
+ */
+void send_packet()
+{
+
+    // Set payload pointer
+    NRF_RADIO->PACKETPTR = (uint32_t)&packet;
+
+    // send the packet:
+    NRF_RADIO->EVENTS_READY = 0U;
+    NRF_RADIO->TASKS_TXEN   = 1;
+
+    while (NRF_RADIO->EVENTS_READY == 0U)
+    {
+        // wait
+    }
+    NRF_RADIO->EVENTS_END  = 0U;
+    NRF_RADIO->TASKS_START = 1U;
+
+    while (NRF_RADIO->EVENTS_END == 0U)
+    {
+        // wait
+    }
+
+    // uint32_t err_code = bsp_indication_text_set(BSP_INDICATE_SENT_OK, "The packet was sent\n\r");
+    // APP_ERROR_CHECK(err_code);
+
+    NRF_RADIO->EVENTS_DISABLED = 0U;
+    // Disable radio
+    NRF_RADIO->TASKS_DISABLE = 1U;
+
+    while (NRF_RADIO->EVENTS_DISABLED == 0U)
+    {
+        // wait
+    }
+}
+
+
+
+
+/**@brief Function for reading packet.
+ */
+uint32_t read_packet()
+{
+    uint32_t result = 0;
+
+    NRF_RADIO->PACKETPTR = (uint32_t)&packet;
+
+    NRF_RADIO->EVENTS_READY = 0U;
+    // Enable radio and wait for ready
+    NRF_RADIO->TASKS_RXEN = 1U;
+
+    while (NRF_RADIO->EVENTS_READY == 0U)
+    {
+        // wait
+    }
+    NRF_RADIO->EVENTS_END = 0U;
+    // Start listening and wait for address received event
+    NRF_RADIO->TASKS_START = 1U;
+
+    // Wait for end of packet or buttons state changed
+    while (NRF_RADIO->EVENTS_END == 0U)
+    {
+        // wait
+    }
+
+    if (NRF_RADIO->CRCSTATUS == 1U)
+    {
+        result = packet;
+    }
+    NRF_RADIO->EVENTS_DISABLED = 0U;
+    // Disable radio
+    NRF_RADIO->TASKS_DISABLE = 1U;
+
+    while (NRF_RADIO->EVENTS_DISABLED == 0U)
+    {
+        // wait
+    }
+    return result;
+}
 
 
 
@@ -96,6 +227,8 @@ int main(void)
 {
     uint32_t err_code;
 
+    clock_initialization();
+
     //配置串口
     const app_uart_comm_params_t comm_params =
     {
@@ -105,7 +238,7 @@ int main(void)
         CTS_PIN_NUMBER,
         APP_UART_FLOW_CONTROL_DISABLED,
         false,
-        UART_BAUDRATE_BAUDRATE_Baud9600
+        UART_BAUDRATE_BAUDRATE_Baud38400
     };
 
     APP_UART_FIFO_INIT(&comm_params,
@@ -116,7 +249,14 @@ int main(void)
                          err_code);
 
     APP_ERROR_CHECK(err_code);
-		printf("hello");
+    printf("uart init succeed!\n");
+
+#ifndef TX
+    LEDS_CONFIGURE(AK2_LEDS_MASK);
+    LEDS_ON(AK2_LEDS_MASK);
+#else
+    
+#endif
 
     // 跑马灯测试
     // // Configure LED-pins as outputs.
@@ -132,174 +272,27 @@ int main(void)
     // }
 
     //配置晶振为16M或者32M
-    //err_code = nrf_drv_clock_init(NULL);
-    //APP_ERROR_CHECK(err_code);
+    // err_code = nrf_drv_clock_init(NULL);
+    // APP_ERROR_CHECK(err_code);
 
+    
     //按键配置为中断模式，按键按下后调试灯会交替闪烁
     ButtonInit();
-		
+    radio_configure();
 
     while(true)
     {
-        ;
-    }
-}
-
-
-/** @} */
-#endif
-
-
-/* Copyright (c) 2014 Nordic Semiconductor. All Rights Reserved.
- *
- * The information contained herein is property of Nordic Semiconductor ASA.
- * Terms and conditions of usage are described in detail in NORDIC
- * SEMICONDUCTOR STANDARD SOFTWARE LICENSE AGREEMENT.
- *
- * Licensees are granted free, non-transferable use of the information. NO
- * WARRANTY of ANY KIND is provided. This heading must NOT be removed from
- * the file.
- *
- */
-
-/** @file
- * @defgroup uart_example_main main.c
- * @{
- * @ingroup uart_example
- * @brief UART Example Application main file.
- *
- * This file contains the source code for a sample application using UART.
- * 
- */
-
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdio.h>
-#include "app_uart.h"
-#include "app_error.h"
-#include "nrf_delay.h"
-#include "nrf.h"
-#include "boards.h"
-
-//#define ENABLE_LOOPBACK_TEST  /**< if defined, then this example will be a loopback test, which means that TX should be connected to RX to get data loopback. */
-
-#define MAX_TEST_DATA_BYTES     (15U)                /**< max number of test bytes to be used for tx and rx. */
-#define UART_TX_BUF_SIZE 256                         /**< UART TX buffer size. */
-#define UART_RX_BUF_SIZE 1                           /**< UART RX buffer size. */
-
-void uart_error_handle(app_uart_evt_t * p_event)
-{
-    if (p_event->evt_type == APP_UART_COMMUNICATION_ERROR)
-    {
-        APP_ERROR_HANDLER(p_event->data.error_communication);
-    }
-    else if (p_event->evt_type == APP_UART_FIFO_ERROR)
-    {
-        APP_ERROR_HANDLER(p_event->data.error_code);
-    }
-}
-
-
-
-#ifdef ENABLE_LOOPBACK_TEST
-/** @brief Function for setting the @ref ERROR_PIN high, and then enter an infinite loop.
- */
-static void show_error(void)
-{
-    
-    LEDS_ON(LEDS_MASK);
-    while(true)
-    {
-        // Do nothing.
-    }
-}
-
-
-/** @brief Function for testing UART loop back. 
- *  @details Transmitts one character at a time to check if the data received from the loopback is same as the transmitted data.
- *  @note  @ref TX_PIN_NUMBER must be connected to @ref RX_PIN_NUMBER)
- */
-static void uart_loopback_test()
-{
-    uint8_t * tx_data = (uint8_t *)("\n\rLOOPBACK_TEST\n\r");
-    uint8_t   rx_data;
-
-    // Start sending one byte and see if you get the same
-    for (uint32_t i = 0; i < MAX_TEST_DATA_BYTES; i++)
-    {
-        uint32_t err_code;
-        while(app_uart_put(tx_data[i]) != NRF_SUCCESS);
-
-        nrf_delay_ms(10);
-        err_code = app_uart_get(&rx_data);
-
-        if ((rx_data != tx_data[i]) || (err_code != NRF_SUCCESS))
-        {
-            show_error();
-        }
-    }
-    return;
-}
-
-
-#endif
-
-
-/**
- * @brief Function for main application entry.
- */
-int main(void)
-{
-    LEDS_CONFIGURE(LEDS_MASK);
-    LEDS_OFF(LEDS_MASK);
-    uint32_t err_code;
-    const app_uart_comm_params_t comm_params =
-      {
-          RX_PIN_NUMBER,
-          TX_PIN_NUMBER,
-          RTS_PIN_NUMBER,
-          CTS_PIN_NUMBER,
-          APP_UART_FLOW_CONTROL_DISABLED,
-          false,
-          UART_BAUDRATE_BAUDRATE_Baud38400
-      };
-
-    APP_UART_FIFO_INIT(&comm_params,
-                         UART_RX_BUF_SIZE,
-                         UART_TX_BUF_SIZE,
-                         uart_error_handle,
-                         APP_IRQ_PRIORITY_LOW,
-                         err_code);
-
-    APP_ERROR_CHECK(err_code);
-
-#ifndef ENABLE_LOOPBACK_TEST
-    printf("\n\rStart: \n\r");
-
-    while (true)
-    {
-        uint8_t cr;
-        while(app_uart_get(&cr) != NRF_SUCCESS);
-        while(app_uart_put(cr) != NRF_SUCCESS);
-
-        if (cr == 'q' || cr == 'Q')
-        {
-            printf(" \n\rExit!\n\r");
-
-            while (true)
-            {
-                // Do nothing.
-            }
-        }
-    }
+#ifdef TX
+        //do nothing
 #else
+        uint32_t received = read_packet();
+        printf("The contents of the package is %u\n\r", (unsigned int)received);
+        LEDS_OFF(AK2_LEDS_MASK);
+        nrf_delay_ms(500);
+        LEDS_ON(AK2_LEDS_MASK);
 
-    // This part of the example is just for testing the loopback .
-    while (true)
-    {
-        uart_loopback_test();
-    }
 #endif
+    }
 }
 
 

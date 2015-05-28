@@ -10,5 +10,5 @@
 .\nrf_drv_common.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\nrf51_bitfields.h
 .\nrf_drv_common.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\nrf51_deprecated.h
 .\nrf_drv_common.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\compiler_abstraction.h
-.\nrf_drv_common.o: G:\nordic\my_prj\mdk\RTE\nRF_Libraries\nRF51822_xxAA\nrf_assert.h
+.\nrf_drv_common.o: C:\Users\zhujiang\Desktop\Nordic\nrf51822_prj\mdk\RTE\nRF_Libraries\nRF51822_xxAA\nrf_assert.h
 .\nrf_drv_common.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\nrf_soc_nosd\nrf_error.h

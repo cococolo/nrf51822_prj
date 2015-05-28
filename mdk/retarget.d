@@ -1,7 +1,7 @@
 .\retarget.o: RTE\nRF_Libraries\nRF51822_xxAA\retarget.c
 .\retarget.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdio.h
 .\retarget.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
-.\retarget.o: G:\nordic\my_prj\mdk\RTE\nRF_Drivers\nRF51822_xxAA\app_uart.h
+.\retarget.o: C:\Users\zhujiang\Desktop\Nordic\nrf51822_prj\mdk\RTE\nRF_Drivers\nRF51822_xxAA\app_uart.h
 .\retarget.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdbool.h
 .\retarget.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\3.0.0\util\app_util_platform.h
 .\retarget.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\compiler_abstraction.h

@@ -441,29 +441,9 @@
           <GroupName>::nRF_Drivers</GroupName>
           <Files>
             <File>
-              <FileName>nrf_delay.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\hal\nrf_delay.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf_drv_common.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\common\nrf_drv_common.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf_drv_gpiote.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\gpiote\nrf_drv_gpiote.c</FilePath>
-            </File>
-            <File>
               <FileName>nrf_drv_config.h</FileName>
               <FileType>5</FileType>
               <FilePath>RTE\nRF_Drivers\nRF51822_xxAA\nrf_drv_config.h</FilePath>
-            </File>
-            <File>
-              <FileName>nrf_drv_clock.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\clock\nrf_drv_clock.c</FilePath>
             </File>
             <File>
               <FileName>nrf_clock.h</FileName>
@@ -479,6 +459,36 @@
               <FileName>app_uart_fifo.c</FileName>
               <FileType>1</FileType>
               <FilePath>RTE\nRF_Drivers\nRF51822_xxAA\app_uart_fifo.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf_drv_clock.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\clock\nrf_drv_clock.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf_drv_common.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\common\nrf_drv_common.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf_drv_gpiote.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\gpiote\nrf_drv_gpiote.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf_delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\3.0.0\hal\nrf_delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>radio_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>RTE\nRF_Drivers\nRF51822_xxAA\radio_config.c</FilePath>
+            </File>
+            <File>
+              <FileName>radio_config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>RTE\nRF_Drivers\nRF51822_xxAA\radio_config.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -550,8 +560,8 @@
           <targetInfo name="NordicTest"/>
         </targetInfos>
       </component>
-      <component Cclass="Board Support" Cgroup="bsp" Cvariant="Defines" Cvendor="NordicSemiconductor" Cversion="8.1.0" condition="bsp_Defines">
-        <package name="nRF_Examples" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Examples/" vendor="NordicSemiconductor" version="8.1.0"/>
+      <component Cclass="Board Support" Cgroup="bsp" Cvariant="Defines" Cvendor="NordicSemiconductor" Cversion="8.1.1" condition="bsp_Defines">
+        <package name="nRF_Examples" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Examples/" vendor="NordicSemiconductor" version="8.1.1"/>
         <targetInfos>
           <targetInfo name="NordicTest"/>
         </targetInfos>
@@ -611,6 +621,12 @@
         </targetInfos>
       </component>
       <component Cclass="nRF_Drivers" Cgroup="nrf_gpiote" Cvendor="NordicSemiconductor" Cversion="3.0.0" condition="nrf_gpiote">
+        <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="3.0.0"/>
+        <targetInfos>
+          <targetInfo name="NordicTest"/>
+        </targetInfos>
+      </component>
+      <component Cclass="nRF_Drivers" Cgroup="radio_config" Cvendor="NordicSemiconductor" Cversion="3.0.0" condition="radio_config">
         <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="3.0.0"/>
         <targetInfos>
           <targetInfo name="NordicTest"/>
@@ -709,6 +725,22 @@
       <file attr="config" category="header" name="config\nrf_drv_config.h" version="3.0.0">
         <instance index="0">RTE\nRF_Drivers\nRF51822_xxAA\nrf_drv_config.h</instance>
         <component Cclass="nRF_Drivers" Cgroup="nrf_drv_gpiote" Cvendor="NordicSemiconductor" Cversion="3.0.0" condition="nrf_drv_gpiote"/>
+        <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="3.0.0"/>
+        <targetInfos>
+          <targetInfo name="NordicTest"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="radio_config\radio_config.c" version="3.0.0">
+        <instance index="0">RTE\nRF_Drivers\nRF51822_xxAA\radio_config.c</instance>
+        <component Cclass="nRF_Drivers" Cgroup="radio_config" Cvendor="NordicSemiconductor" Cversion="3.0.0" condition="radio_config"/>
+        <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="3.0.0"/>
+        <targetInfos>
+          <targetInfo name="NordicTest"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="radio_config\radio_config.h" version="3.0.0">
+        <instance index="0">RTE\nRF_Drivers\nRF51822_xxAA\radio_config.h</instance>
+        <component Cclass="nRF_Drivers" Cgroup="radio_config" Cvendor="NordicSemiconductor" Cversion="3.0.0" condition="radio_config"/>
         <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="3.0.0"/>
         <targetInfos>
           <targetInfo name="NordicTest"/>
