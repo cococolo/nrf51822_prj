@@ -1,0 +1,15 @@
+.\ble_srv_common.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_BLE\3.0.0\common\ble_srv_common.c
+.\ble_srv_common.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_BLE\3.0.0\common\ble_srv_common.h
+.\ble_srv_common.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
+.\ble_srv_common.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdbool.h
+.\ble_srv_common.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\ble_types.h
+.\ble_srv_common.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\3.0.0\util\app_util.h
+.\ble_srv_common.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\compiler_abstraction.h
+.\ble_srv_common.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\ble_gap.h
+.\ble_srv_common.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\ble_ranges.h
+.\ble_srv_common.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\nrf_svc.h
+.\ble_srv_common.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\ble_gatt.h
+.\ble_srv_common.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
+.\ble_srv_common.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\3.0.0\util\nordic_common.h
+.\ble_srv_common.o: C:\Users\zhujiang\Desktop\Nordic\nrf51822_prj\central\mdk\RTE\nRF_Libraries\nRF51422_xxAA\app_error.h
+.\ble_srv_common.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\nrf_error.h

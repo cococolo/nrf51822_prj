@@ -1,0 +1,10 @@
+--cpu Cortex-M0
+".\repeater_main.o"
+".\arm_startup_nrf51.o"
+".\system_nrf51.o"
+".\app_error.o"
+".\softdevice_handler.o"
+--strict --scatter ".\REPEATER.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\REPEATER.map" -o .\REPEATER.axf

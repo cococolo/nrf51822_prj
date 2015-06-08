@@ -1,0 +1,66 @@
+Dependencies for Project 'REPEATER', Target 'repeater': (DO NOT MODIFY !)
+F (..\src\repeater_main.c)(0x5575AC2B)(--c99 -c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\src-I C:\Users\zhujiang\Desktop\Nordic\nrf51822_prj\repeater\mdk\RTE-I C:\Users\zhujiang\Desktop\Nordic\nrf51822_prj\repeater\mdk\RTE\nRF_Libraries\nRF51422_xxAA-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\3.0.0\util-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_Common\1.1.3\softdevice_handler-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers-D_RTE_ -DNRF51 -D__HEAP_SIZE="0" -DBLE_STACK_SUPPORT_REQD -DS120 -DBOARD_PCA10028 -DBSP_UART_SUPPORT -DNRF51 -DSOFTDEVICE_PRESENT -DSWI_DISABLE0-o .\repeater_main.o --omf_browse .\repeater_main.crf --depend .\repeater_main.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+F (RTE\Device\nRF51422_xxAA\arm_startup_nrf51.s)(0x55406634)(--cpu Cortex-M0 -g --apcs=interwork -I C:\Users\zhujiang\Desktop\Nordic\nrf51822_prj\repeater\mdk\RTE-I C:\Users\zhujiang\Desktop\Nordic\nrf51822_prj\repeater\mdk\RTE\nRF_Libraries\nRF51422_xxAA-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\3.0.0\util-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_Common\1.1.3\softdevice_handler-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers--list .\arm_startup_nrf51.lst --xref -o .\arm_startup_nrf51.o --depend .\arm_startup_nrf51.d)
+F (RTE\Device\nRF51422_xxAA\system_nrf51.c)(0x55406634)(--c99 -c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\src-I C:\Users\zhujiang\Desktop\Nordic\nrf51822_prj\repeater\mdk\RTE-I C:\Users\zhujiang\Desktop\Nordic\nrf51822_prj\repeater\mdk\RTE\nRF_Libraries\nRF51422_xxAA-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\3.0.0\util-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_Common\1.1.3\softdevice_handler-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers-D_RTE_ -DNRF51 -D__HEAP_SIZE="0" -DBLE_STACK_SUPPORT_REQD -DS120 -DBOARD_PCA10028 -DBSP_UART_SUPPORT -DNRF51 -DSOFTDEVICE_PRESENT -DSWI_DISABLE0-o .\system_nrf51.o --omf_browse .\system_nrf51.crf --depend .\system_nrf51.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\nrf.h)(0x55406634)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\nrf51.h)(0x55406632)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm0.h)(0x53688AAC)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\system_nrf51.h)(0x55406634)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\nrf51_bitfields.h)(0x55406632)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\nrf51_deprecated.h)(0x55406634)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\compiler_abstraction.h)(0x55406634)
+F (RTE\nRF_Libraries\nRF51422_xxAA\app_error.c)(0x554B0548)(--c99 -c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\src-I C:\Users\zhujiang\Desktop\Nordic\nrf51822_prj\repeater\mdk\RTE-I C:\Users\zhujiang\Desktop\Nordic\nrf51822_prj\repeater\mdk\RTE\nRF_Libraries\nRF51422_xxAA-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\3.0.0\util-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_Common\1.1.3\softdevice_handler-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers-D_RTE_ -DNRF51 -D__HEAP_SIZE="0" -DBLE_STACK_SUPPORT_REQD -DS120 -DBOARD_PCA10028 -DBSP_UART_SUPPORT -DNRF51 -DSOFTDEVICE_PRESENT -DSWI_DISABLE0-o .\app_error.o --omf_browse .\app_error.crf --depend .\app_error.d)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\nrf.h)(0x55406634)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\nrf51.h)(0x55406632)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm0.h)(0x53688AAC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\system_nrf51.h)(0x55406634)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\nrf51_bitfields.h)(0x55406632)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\nrf51_deprecated.h)(0x55406634)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\compiler_abstraction.h)(0x55406634)
+I (RTE\nRF_Libraries\nRF51422_xxAA\app_error.h)(0x554B0548)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\nrf_error.h)(0x556521CE)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\3.0.0\util\nordic_common.h)(0x554B0548)
+F (RTE\nRF_Libraries\nRF51422_xxAA\app_error.h)(0x554B0548)()
+F (RTE\nRF_SoftDevice\nRF51422_xxAA\s120_nrf51822_2.0.0_licence_agreement.txt)(0x556521CE)()
+F (RTE\nRF_SoftDevice\nRF51422_xxAA\softdevice_handler.c)(0x554B054A)(--c99 -c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\src-I C:\Users\zhujiang\Desktop\Nordic\nrf51822_prj\repeater\mdk\RTE-I C:\Users\zhujiang\Desktop\Nordic\nrf51822_prj\repeater\mdk\RTE\nRF_Libraries\nRF51422_xxAA-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\3.0.0\util-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_Common\1.1.3\softdevice_handler-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers-D_RTE_ -DNRF51 -D__HEAP_SIZE="0" -DBLE_STACK_SUPPORT_REQD -DS120 -DBOARD_PCA10028 -DBSP_UART_SUPPORT -DNRF51 -DSOFTDEVICE_PRESENT -DSWI_DISABLE0-o .\softdevice_handler.o --omf_browse .\softdevice_handler.crf --depend .\softdevice_handler.d)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_Common\1.1.3\softdevice_handler\softdevice_handler.h)(0x554B054A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\3.0.0\util\nordic_common.h)(0x554B0548)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\nrf_sdm.h)(0x556521CE)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\nrf_svc.h)(0x556521CE)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\nrf51.h)(0x55406632)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm0.h)(0x53688AAC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\system_nrf51.h)(0x55406634)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\nrf_soc.h)(0x556521CE)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\nrf51_bitfields.h)(0x55406632)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\nrf_error_soc.h)(0x556521CE)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\nrf_error.h)(0x556521CE)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\nrf_error_sdm.h)(0x556521CE)
+I (C:\Users\zhujiang\Desktop\Nordic\nrf51822_prj\repeater\mdk\RTE\nRF_Libraries\nRF51422_xxAA\app_error.h)(0x554B0548)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\3.0.0\util\app_util.h)(0x554B0548)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\7.2.1\Device\Include\compiler_abstraction.h)(0x55406634)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_Common\1.1.3\softdevice_handler\ble_stack_handler_types.h)(0x554B054A)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\ble.h)(0x556521CE)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\ble_ranges.h)(0x556521CE)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\ble_types.h)(0x556521CE)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\ble_gap.h)(0x556521CE)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\ble_l2cap.h)(0x556521CE)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\ble_err.h)(0x556521CE)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\ble_gatt.h)(0x556521CE)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\ble_gattc.h)(0x556521CE)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_S120\2.0.1\headers\ble_gatts.h)(0x556521CE)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_SoftDevice_Common\1.1.3\softdevice_handler\ant_stack_handler_types.h)(0x554B054A)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Libraries\3.0.0\util\nrf_assert.h)(0x554B0548)
